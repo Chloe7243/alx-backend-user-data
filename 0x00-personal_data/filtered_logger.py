@@ -34,7 +34,8 @@ def filter_datum(
 ) -> str:
     """Filter datum"""
     for f in fields:
-        message = re.sub(f"{f}=.+?{separator}", f"{f}={redaction}{separator}", message)
+        message = re.sub(f"{f}=.+?{separator}",
+                         f"{f}={redaction}{separator}", message)
     return message
 
 
@@ -62,7 +63,9 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
 
 def main() -> None:
     """
-    The function will obtain a database connection using get_db and retrieve all rows in the users table and display each row under a filtered format
+    The function will obtain a database connection using get_db
+    and retrieve all rows in the users table and display
+    each row under a filtered format
     """
     logger = get_logger()
     logger.setLevel(logging.INFO)
