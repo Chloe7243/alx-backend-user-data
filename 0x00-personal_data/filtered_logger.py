@@ -40,6 +40,7 @@ def filter_datum(
 
 
 def get_logger():
+    """Returns a logger"""
     logger = logging.Logger("user_data")
     logger.setLevel(logging.INFO)
     logger.propagate = False
