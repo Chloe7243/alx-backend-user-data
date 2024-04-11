@@ -17,7 +17,7 @@ class RedactingFormatter(logging.Formatter):
         super(RedactingFormatter, self).__init__(self.FORMAT)
 
     def format(self, record: logging.LogRecord) -> str:
-        "Formatter"
+        """Formatter"""
         record.msg = filter_datum(
             self.__fields, self.REDACTION, record.msg, self.SEPARATOR
         )
@@ -27,7 +27,7 @@ class RedactingFormatter(logging.Formatter):
 def filter_datum(
     fields: List[str], redaction: str, message: str, separator: str
 ) -> str:
-    "Filter datum"
+    """Filter datum"""
     for f in fields:
         message = re.sub(f"{f}=.+?{separator}",
                          f"{f}={redaction}{separator}", message)
